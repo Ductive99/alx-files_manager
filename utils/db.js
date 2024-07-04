@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 const { MongoClient } = require('mongodb');
+const sha1 = require('sha1');
 
 class DBClient {
   constructor() {
@@ -33,6 +34,10 @@ class DBClient {
     await this.client.connect();
     const users = await this.client.db(this.database).collection('files').countDocuments();
     return users;
+  }
+
+  async usersCollection() {
+    return this.client.db().collection('users');
   }
 }
 
