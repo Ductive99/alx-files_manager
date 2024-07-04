@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 
 const { MongoClient } = require('mongodb');
-const sha1 = require('sha1');
 
 class DBClient {
   constructor() {
