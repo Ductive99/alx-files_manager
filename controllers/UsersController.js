@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
-const dbClient = require('../utils/db');
 const sha1 = require('sha1');
+const dbClient = require('../utils/db');
 
 class UsersController {
   static async postNew(req, res) {
@@ -25,7 +25,7 @@ class UsersController {
     }
 
     const user = await (await dbClient.usersCollection())
-      .insertOne({ email, password: sha1(password) })
+      .insertOne({ email, password: sha1(password) });
     const id = `${user.insertedId}`;
     res.status(201).json({ id, email });
     res.end();
