@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 
-const { v4 } = require('uuid');
-const redisClient = require('../utils/redis');
+import { v4 } from 'uuid';
+import redisClient from '../utils/redis';
 
-class AuthController {
+export default class AuthController {
   static async getConnect(req, res) {
     const { user } = req;
     const token = v4();
@@ -19,5 +19,3 @@ class AuthController {
     res.status(204).send();
   }
 }
-
-module.exports = AuthController;
